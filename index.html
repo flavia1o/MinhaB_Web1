@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Minha Biblioteca</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <h1>Minha Biblioteca</h1>
+  <p class="subtitulo">organize sua colecao de livros</p>
+
+  <!-- PLACAR -->
+  <div id="placar">
+    <div class="stat">
+      <span id="total">0</span>
+      <p>Total</p>
+    </div>
+    <div class="stat">
+      <span id="repetidos">0</span>
+      <p>Repetidos</p>
+    </div>
+    <div class="stat">
+      <span id="unicos">0</span>
+      <p>Unicos</p>
+    </div>
+    <div class="stat">
+      <span id="favoritos">0</span>
+      <p>Favoritos</p>
+    </div>
+  </div>
+
+  <!-- FORMULÁRIO -->
+  <div id="formulario">
+    <h2>Adicionar livro</h2>
+    <input type="text" id="titulo" placeholder="Titulo do livro" />
+    <input type="text" id="autor" placeholder="Autor" />
+    <input type="text" id="imagem" placeholder="Link da capa (URL) — opcional" />
+    <div class="linha-dupla">
+      <select id="genero">
+        <option value="">Genero</option>
+        <option>Romance</option>
+        <option>Fantasia</option>
+        <option>Ficcao Cientifica</option>
+        <option>Terror</option>
+        <option>Misterio / Thriller</option>
+        <option>Aventura</option>
+        <option>Historico</option>
+        <option>Biografia</option>
+        <option>Autoajuda</option>
+        <option>Poesia</option>
+        <option>Quadrinhos / HQ</option>
+        <option>Manga</option>
+        <option>Infantil / Jovem Adulto</option>
+        <option>Classico</option>
+        <option>Outro</option>
+      </select>
+      <select id="raridade">
+        <option value="Comum">Comum</option>
+        <option value="Incomum">Incomum</option>
+        <option value="Raro">Raro</option>
+        <option value="Ultra Raro">Ultra Raro</option>
+        <option value="Edicao Especial">Edicao Especial</option>
+      </select>
+    </div>
+    <select id="repetido">
+      <option value="nao">Unico</option>
+      <option value="sim">Repetido</option>
+    </select>
+    <button onclick="adicionarLivro()">Adicionar a colecao</button>
+  </div>
+
+  <!-- BUSCA -->
+  <div id="busca-wrapper">
+    <input type="text" id="busca" placeholder="Buscar livro ou autor..." oninput="filtrar()" />
+  </div>
+
+  <!-- CARDS -->
+  <div id="colecao">
+    <p class="vazio">Sua biblioteca esta vazia. Adicione um livro acima!</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
