@@ -1,86 +1,91 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Minha Biblioteca</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>minha estante</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <h1>Minha Biblioteca</h1>
-  <p class="subtitulo">organize sua colecao de livros</p>
+<header>
+ <h1>minha estante de livros</h1>
+ <p>todos os meus livros favoritos</p>
+</header>
 
-  <!-- PLACAR -->
-  <div id="placar">
-    <div class="stat">
-      <span id="total">0</span>
-      <p>Total</p>
-    </div>
-    <div class="stat">
-      <span id="repetidos">0</span>
-      <p>Repetidos</p>
-    </div>
-    <div class="stat">
-      <span id="unicos">0</span>
-      <p>Unicos</p>
-    </div>
-    <div class="stat">
-      <span id="favoritos">0</span>
-      <p>Favoritos</p>
-    </div>
+<div class="busca-wrap">
+ <input type="text" id="busca" placeholder="buscar livro pelo título...">
+</div>
+
+<div class="stats">
+ <div class="stat"><span class="num" id="stat-total">0</span><span class="lbl">total</span></div>
+ <div class="stat"><span class="num" id="stat-rep">0</span><span class="lbl">repetidos</span></div>
+ <div class="stat"><span class="num" id="stat-unicos">0</span><span class="lbl">únicos</span></div>
+ <div class="stat"><span class="num" id="stat-troca">0</span><span class="lbl">p/ troca</span></div>
+ <div class="stat"><span class="num" id="stat-favs">0</span><span class="lbl">favoritos</span></div>
+</div>
+
+<div class="container">
+
+ <div class="form-box">
+  <h2>adicionar livro</h2>
+
+  <label for="inp-titulo">título</label>
+  <input type="text" id="inp-titulo" placeholder="nome do livro">
+
+  <label for="inp-autor">autor(a)</label>
+  <input type="text" id="inp-autor" placeholder="quem escreveu">
+
+  <label for="inp-genero">gênero</label>
+  <select id="inp-genero">
+   <option value="fantasia">fantasia</option>
+   <option value="romance">romance</option>
+   <option value="ficcao">ficção científica</option>
+   <option value="terror">terror</option>
+   <option value="aventura">aventura</option>
+   <option value="historia">história</option>
+   <option value="autoajuda">autoajuda</option>
+   <option value="poesia">poesia</option>
+  </select>
+
+  <label for="inp-raridade">raridade</label>
+  <select id="inp-raridade">
+   <option value="1">comum</option>
+   <option value="2">incomum</option>
+   <option value="3">raro</option>
+   <option value="4">muito raro</option>
+   <option value="5">lendário</option>
+  </select>
+
+  <label for="inp-capa">url da capa (opcional)</label>
+  <input type="text" id="inp-capa" placeholder="https://...">
+
+  <label class="check-row">
+   <input type="checkbox" id="inp-rep">
+   tenho repetido
+  </label>
+
+  <button class="btn-add" id="btn-add">+ adicionar</button>
+ </div>
+
+ <div class="grid-wrap">
+  <div class="empty" id="empty">
+   <span>:)</span>
+   sua estante tá vazia ainda...<br>
+   adiciona o primeiro livro!
   </div>
 
-  <!-- FORMULÁRIO -->
-  <div id="formulario">
-    <h2>Adicionar livro</h2>
-    <input type="text" id="titulo" placeholder="Titulo do livro" />
-    <input type="text" id="autor" placeholder="Autor" />
-    <input type="text" id="imagem" placeholder="Link da capa (URL) — opcional" />
-    <div class="linha-dupla">
-      <select id="genero">
-        <option value="">Genero</option>
-        <option>Romance</option>
-        <option>Fantasia</option>
-        <option>Ficcao Cientifica</option>
-        <option>Terror</option>
-        <option>Misterio / Thriller</option>
-        <option>Aventura</option>
-        <option>Historico</option>
-        <option>Biografia</option>
-        <option>Autoajuda</option>
-        <option>Poesia</option>
-        <option>Quadrinhos / HQ</option>
-        <option>Manga</option>
-        <option>Infantil / Jovem Adulto</option>
-        <option>Classico</option>
-        <option>Outro</option>
-      </select>
-      <select id="raridade">
-        <option value="Comum">Comum</option>
-        <option value="Incomum">Incomum</option>
-        <option value="Raro">Raro</option>
-        <option value="Ultra Raro">Ultra Raro</option>
-        <option value="Edicao Especial">Edicao Especial</option>
-      </select>
-    </div>
-    <select id="repetido">
-      <option value="nao">Unico</option>
-      <option value="sim">Repetido</option>
-    </select>
-    <button onclick="adicionarLivro()">Adicionar a colecao</button>
-  </div>
+  <div class="grid" id="grid" style="display:none"></div>
+ </div>
 
-  <!-- BUSCA -->
-  <div id="busca-wrapper">
-    <input type="text" id="busca" placeholder="Buscar livro ou autor..." oninput="filtrar()" />
-  </div>
+</div>
 
-  <!-- CARDS -->
-  <div id="colecao">
-    <p class="vazio">Sua biblioteca esta vazia. Adicione um livro acima!</p>
-  </div>
+<div class="toast" id="toast"></div>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
+
 </body>
 </html>
